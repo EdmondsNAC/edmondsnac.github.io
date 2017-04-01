@@ -7,7 +7,7 @@ header:
 resource_row:
   - image_path: "/assets/images/resistbot.png"
     title_url: "https://resistbot.io/"
-    title: "Resist Bot"
+    title: "Resist Bot2"
     excerpt: "Fax your Senators and Representatives via text message"
   - image_path: "/assets/images/5calls.png"
     title_url: "https://5calls.org/"
