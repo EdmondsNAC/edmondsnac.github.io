@@ -1,2 +1,1 @@
-# edmondsnac.github.io
-Edmonds NAC Website
+### ENAC Website
