@@ -1,0 +1,49 @@
+{% if include.id %}
+  {% assign fa_feature_row = page.[include.id] %}
+{% else %}
+  {% assign fa_feature_row = page.fa_feature_row %}
+{% endif %}
+
+<div class="feature__wrapper">
+
+  {% for f in fa_feature_row %}
+
+    {% if f.url contains "://" %}
+      {% capture f_url %}{{ f.url }}{% endcapture %}
+    {% else %}
+      {% capture f_url %}{{ f.url | absolute_url }}{% endcapture %}
+    {% endif %}
+
+    <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+      <div class="archive__item">
+        {% if f.fa_icon %}
+          <div class="text-center">
+            {% if f.fa_icon_url %}
+            <a href="{{f.fa_icon_url}}">
+              <i class="fa fa-3x fa-{{ f.fa_icon }}"></i>
+            </a>
+            {% else %}
+            <i class="fa fa-3x fa-{{ f.fa_icon }}"></i>
+            {% endif %}
+            <p class="text-center">
+              {{ f.caption }}
+            </p>
+          </div>
+        {% endif %}
+
+        <div class="archive__item-body">
+          {% if f.title %}
+            <h2 class="archive__item-title">{{ f.title }}</h2>
+          {% endif %}
+
+          {% if f.excerpt %}
+            <div class="archive__item-excerpt">
+              {{ f.excerpt | markdownify }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+</div>
